@@ -1,52 +1,26 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import Dialogs from "./components/Dialogs/Dialogs";
+import Header from "./components/Header/Header";
+import Navbar from "./components/Navbar/Navbar";
+import Profile from "./components/Profile/Profile";
 
 const App = () => {
   return (
-    <div className = 'app-wrapper'>
-      <header>
-        <img src='https://api.freelogodesign.org/assets/thumb/logo/23243803_400.png?t=637478931530000000' width='20px'/>
-      </header>      
-      <nav className='nav'>
-        <div>
-          <a>Profile</a>
-        </div>
-        <div>
-          <a>Messages</a>
-        </div>
-        <div>
-          <a>News</a>
-        </div>
-        <div>
-          <a>Music</a>
-        </div>
-        <div>
-          <a>Settings</a>
-        </div>
-      </nav>
-      <div className='content'>
-        <div>
-          <img src='https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg' />
-        </div>
-        <div>
-          ava + description
-        </div>
-        <div>
-          My posts
-          <div>
-            My post
-          </div>
-          <div>
-            post 1
-          </div>
-          <div>
-            post 2
-          </div>
+    <BrowserRouter>
+      <div className="app-wrapper">
+        <Header />
+        <Navbar />
+        <div className="app-wrapper-content">
+          <Routes>
+            <Route path='/dialogs/*' element={<Dialogs/>} />
+            <Route path='/profile' element={<Profile/>} />
+          </Routes>
         </div>
       </div>
-    </div>
+    </BrowserRouter>
   );
 };
-
 
 export default App;
