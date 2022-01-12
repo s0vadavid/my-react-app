@@ -6,24 +6,11 @@ import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 
-let dialogs = [
-  { id: "1", name: "Dimych" },
-  { id: "2", name: "Andrew" },
-  { id: "3", name: "Sveta" },
-  { id: "4", name: "Sasha" },
-  { id: "5", name: "Viktor" },
-  { id: "6", name: "Valera" },
-];
 
-let messages = [
-  { id: "1", message: "Hi" },
-  { id: "2", message: "How are you?" },
-  { id: "3", message: "Yo" },
-  { id: "4", message: "Yo" },
-  { id: "5", message: "Yo" },
-];
 
-const App = () => {
+
+
+const App = (props) => {
   return (
     <BrowserRouter>
       <div className="app-wrapper">
@@ -33,9 +20,9 @@ const App = () => {
           <Routes>
             <Route
               path="/dialogs/*"
-              element={<Dialogs dialogs={dialogs} messages={messages} />}
+              element={<Dialogs dialogs={props.dialogs} messages={props.messages} />}
             />
-            <Route path="/profile" element={<Profile />} />
+            <Route path="/profile" element={<Profile posts={props.posts}/>} />
           </Routes>
         </div>
       </div>
@@ -44,3 +31,4 @@ const App = () => {
 };
 
 export default App;
+ 
