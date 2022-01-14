@@ -21,6 +21,9 @@ const Navbar = () => {
             <div className={s.item}>
                 <a>Settings</a>
             </div>
+            <div className={s.friends}>
+                <h2>Friends</h2>
+            </div>
         </nav>
     )
 }

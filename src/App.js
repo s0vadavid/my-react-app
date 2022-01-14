@@ -1,14 +1,11 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "./App.css";
 import Dialogs from "./components/Dialogs/Dialogs";
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 
-
-
-
+import "./App.css";
 
 const App = (props) => {
   return (
@@ -20,9 +17,12 @@ const App = (props) => {
           <Routes>
             <Route
               path="/dialogs/*"
-              element={<Dialogs dialogs={props.dialogs} messages={props.messages} />}
+              element={<Dialogs state={props.state.dialogsPage} />}
             />
-            <Route path="/profile" element={<Profile posts={props.posts}/>} />
+            <Route
+              path="/profile"
+              element={<Profile state={props.state.profilePage} />}
+            />
           </Routes>
         </div>
       </div>
@@ -31,4 +31,3 @@ const App = (props) => {
 };
 
 export default App;
- 
