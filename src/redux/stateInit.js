@@ -25,6 +25,8 @@ const state = {
       { id: "6", name: "Valera" },
     ],
   },
+  sidebar: {
+  },
 };
 
 export default state;

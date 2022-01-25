@@ -19,3 +19,7 @@
 .messages .message {
   color: white;
 }
+
+.textItem {
+  margin-left: 10px;
+}
