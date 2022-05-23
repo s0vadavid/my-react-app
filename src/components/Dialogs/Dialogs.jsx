@@ -7,7 +7,7 @@ import Message from './Message/Message';
 let newMessageElement = React.createRef();
 let addMessage = () => {
   let myMessage = newMessageElement.current.value;
-  alert(myMessage);
+  
 };
 
 const Dialogs = (props) => {
