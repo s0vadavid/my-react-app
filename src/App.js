@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import "./App.css";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import UsersContainer from "./components/Users/UsersContainer";
 
 const App = (props) => {
   return (
@@ -23,6 +24,9 @@ const App = (props) => {
               <Profile />
             }
           />
+          <Route
+            path="/users/*"
+            element={<UsersContainer />} />
         </Routes>
       </div>
     </div>
