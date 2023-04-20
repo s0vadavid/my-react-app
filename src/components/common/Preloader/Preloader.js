@@ -1,10 +1,10 @@
 import React from "react";
-import { preloader } from "./../../../assets/loader.svg";
+import { preloader } from "../../../assets/loader.svg";
 
 let Preloader = (props) => {
   return (
     <div>
-      <img src={preloader}></img>
+      <object data={preloader} type="image/svg+xml" width="100" height="100"></object>
     </div>
   );
 };

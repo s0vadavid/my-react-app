@@ -1,21 +1,59 @@
 .nav {
-    grid-area: n;
-    background-color: burlywood;
-    padding: 20px;
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding: 20px 20px 20px 0;
+    margin-top: 60px;
 }
 
 .item {
-    color: white;
+    padding: 6px 8px 6px 8px;
     text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: flex;
+}
+
+.item a {
+    border-style: solid;
+    border-color: #f1f1f1;
+    border-radius: 5px;
+    border-width: 1px;
+    color: #c4bcbc;
+    text-underline-offset: var(--offset, 0.2em);
+    text-decoration: underline 0.15em;
+    transition: --offset 8000ms, text-decoration-color 800ms;
+    margin-left: 10px;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1px;
+}
+
+.item a:hover, .item a:focus {
+    color: purple;
+    --offset: 0.4em;
+    text-decoration-color: indigo;
+    border-color: indigo;
+}
+
+@supports not (background: paint(something)) {
+    .item a {
+        transition: text-underline-offset 1000ms, text-decoration-color 1000ms;
+    }
+
+    .item a:hover,
+    .item a:focus {
+        text-underline-offset: 0.4em;
+    }
 }
 
 .active {
-    color: gold;
-    text-decoration: none;
-}
-
-.friends {
-    color: white;
-    text-decoration: none;
-    margin-top: 20px;
+    --offset: 0.4em;
+    text-decoration-color: indigo;
+    border-color: indigo;
+    color: indigo;
 }

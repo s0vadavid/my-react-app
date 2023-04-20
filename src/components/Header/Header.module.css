@@ -1,9 +1,16 @@
 .header {
-    grid-area: h;
+    display: flex;
     background-color: green;
+    width: 100%;
+    flex-direction: row;
+    position: fixed;
+    height: 60px;
+    z-index: 999;
+    margin-top: 20px;
 }
 
 .header img {
+    height: 20px;
     width: 20px;
 }
 

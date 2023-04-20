@@ -1,8 +1,11 @@
 import React from "react";
 import styles from "./users.module.css";
 import userPhoto from "../../assets/user.png";
+import { NavLink } from "react-router-dom";
+import { Pagination, Typography, Button } from "@mui/material";
 
-let Users = (props) => {
+const Users = (props) => {
+  console.log(props)
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
   let pages = [];
   for (let i = 1; i <= pagesCount; i++) {
@@ -12,52 +15,50 @@ let Users = (props) => {
   let curPF = curP - 5 < 0 ? 0 : curP - 5;
   let curPL = curP + 5;
   let slicedPages = pages.slice(curPF, curPL);
+  console.log(props)
   return (
     <div>
-      <div>
-        {slicedPages.map((p) => {
-          return (
-            <span
-              className={props.currentPage === p && styles.selectedPage}
-              onClick={() => props.onPageChanged(p)}
-            >
-              {p}
-            </span>
-          );
-        })}
+      <div className={styles.pagination}>
+        <Pagination onChange={(event, num) => props.onPageChanged(num)} count={pagesCount} page={curP}></Pagination>
       </div>
       {props.users.map((u) => (
-        <div key={u.id}>
+        <div className={styles.userItem} key={u.id}>
           <span>
             <div>
-              <img
-                src={u.photos.small !== null ? u.photos.small : userPhoto}
-                className={styles.userPhoto}
-              />
+              <NavLink to={'/profile/' + u.id}>
+                <img
+                  src={u.photos.small !== null ? u.photos.small : userPhoto}
+                  className={styles.userPhoto}
+                />
+              </NavLink>
             </div>
             <div>
               {u.followed ? (
-                <button
+                <Button
                   onClick={() => {
                     props.unfollow(u.id);
-                  }}
+                  }} 
+                  color="error"
+                  contained="contained"
                 >
                   Unfollow
-                </button>
+                </Button>
               ) : (
-                <button
+                <Button
                   onClick={() => {
                     props.follow(u.id);
-                  }}
+                  }} 
+                  color="success"
+                  variant="contained"
                 >
                   Follow
-                </button>
+                </Button>
               )}
             </div>
           </span>
           <span>
             <span>
-              <div>{u.name}</div>
+              <div className={styles.nameString}><Typography variant="h4">{u.name}</Typography></div>
               <div>{u.status}</div>
             </span>
             <span>

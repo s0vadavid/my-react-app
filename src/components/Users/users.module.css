@@ -1,8 +1,30 @@
+.userItem {
+  display: flex;
+  margin: 0 0 30px 0;
+}
+
+.userItem Button {
+  margin-left: 9px;
+}
+
 .userPhoto {
   width: 100px;
   height: 100px;
+  border-style: solid;
+  border-color: mediumpurple;
+  margin: 0 20px 0 0;
 }
 
-.selectedPage {
-    font-weight: bold;
+.pagination {
+  display: flex;
+  margin: 0 0 20px 0;
+  padding: 30px 0 30px 0;
+  border-bottom: 2px solid #111;
+  align-content: center;
 }
+
+.nameString {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+

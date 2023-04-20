@@ -1,10 +1,12 @@
 import React from 'react';
 import s from './MyPosts.module.css';
 import Post from './Post/Post';
+import Button from '@mui/material/Button';
+import { TextField } from '@mui/material';
 
 const MyPosts = (props) => {
 
-  let newPostElement = React.createRef();
+  let newPostElement = React.useRef();
 
   let onAddPost = () => {
     props.addPost();
@@ -18,13 +20,19 @@ const MyPosts = (props) => {
 
   return (
     <div className={s.postsBlock}>
-      <h3>My posts</h3>
+      <div className={s.postsTitle}>My posts</div>
       <div>
         <div>
-          <textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText}></textarea>
+          <TextField
+            onChange={onPostChange}
+            inputRef={newPostElement}
+            value={props.newPostText}
+            label={'Type here'}
+            margin="normal"
+          />
         </div>
         <div>
-          <button onClick={onAddPost}>Add post</button>
+          <Button onClick={onAddPost} variant='contained' size='small'>Add post</Button>
         </div>
       </div>
       <div className={s.posts}>
