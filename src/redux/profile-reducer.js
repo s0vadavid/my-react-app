@@ -9,7 +9,7 @@ let initialState = {
     { id: "3", message: "Ok", likesCount: 99 },
   ],
   newPostText: "",
-  profile: null
+  profile: null,
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -23,7 +23,7 @@ const profileReducer = (state = initialState, action) => {
       return {
         ...state,
         posts: [...state.posts, newPost],
-        newPostText: '',
+        newPostText: "",
       };
     }
     case UPDATE_NEW_POST_TEXT: {
@@ -33,7 +33,7 @@ const profileReducer = (state = initialState, action) => {
       };
     }
     case SET_USER_PROFILE: {
-
+      return { ...state, profile: action.profile };
     }
     default:
       return state;
@@ -47,6 +47,6 @@ export const updateNewPostTextActionCreator = (text) => {
   return { type: UPDATE_NEW_POST_TEXT, newText: text };
 };
 export const setUserProfile = (profile) => {
-  return {type: SET_USER_PROFILE, profile};
-}
+  return { type: SET_USER_PROFILE, profile };
+};
 export default profileReducer;

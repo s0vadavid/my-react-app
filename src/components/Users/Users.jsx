@@ -5,7 +5,6 @@ import { NavLink } from "react-router-dom";
 import { Pagination, Typography, Button } from "@mui/material";
 
 const Users = (props) => {
-  console.log(props)
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
   let pages = [];
   for (let i = 1; i <= pagesCount; i++) {
@@ -15,7 +14,6 @@ const Users = (props) => {
   let curPF = curP - 5 < 0 ? 0 : curP - 5;
   let curPL = curP + 5;
   let slicedPages = pages.slice(curPF, curPL);
-  console.log(props)
   return (
     <div>
       <div className={styles.pagination}>

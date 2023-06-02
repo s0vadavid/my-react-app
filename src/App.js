@@ -19,7 +19,7 @@ const App = (props) => {
             element={<DialogsContainer />}
           />
           <Route
-            path="/profile/*"
+            path="/profile/:userId?"
             element={
               <ProfileContainer />
             }

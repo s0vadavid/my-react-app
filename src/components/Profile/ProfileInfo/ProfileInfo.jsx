@@ -9,11 +9,8 @@ const ProfileInfo = (props) => {
 
   return (
     <div className={s.content}>
-      <div>
-        <img src='https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&h=350' />
-      </div>
       <div className={s.descriptionBlock}>
-        <img src={props.profile.photos.large} />
+        <img className={s.userPhoto} src={props.profile.photos.large !== null ? props.profile.photos.large : 'https://www.bautec-gmbh.com/upload/placeholder-m2_1636540211.jpg'} />
         ava + description
       </div>
     </div>
